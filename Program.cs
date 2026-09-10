@@ -8,7 +8,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();  
 
 var app = builder.Build();
-app.Urls.Add("http://0.0.0.0:5116");
+
+// Roda as migrations automaticamente ao ligar o site
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
+var porta = Environment.GetEnvironmentVariable("PORT") ?? "5116";
+app.Urls.Add($"http://0.0.0.0:{porta}");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -32,4 +41,3 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 app.Run();
-
