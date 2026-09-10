@@ -1,0 +1,22 @@
+@model PoliNewsWeb.Models.Noticia
+
+<h1>Adicionar Notícia</h1>
+
+<div class="cartao-formulario">
+    <form method="post" action="/Noticia/Criar">
+        <input type="hidden" name="CategoriaNoticiaId" value="@Model.CategoriaNoticiaId" />
+
+        <label>Título:</label>
+        <input type="text" name="Titulo" required />
+
+        <label>Link da Foto:</label>
+        <input type="text" name="Foto" required />
+
+        <label>Texto da Notícia:</label>
+        <textarea name="Texto" rows="8" required></textarea>
+
+        <button type="submit" class="botao-salvar">Salvar</button>
+    </form>
+</div>
+
+<a href="/CategoriaNoticia/Perfil/@Model.CategoriaNoticiaId" class="link-voltar">Voltar para a categoria</a>

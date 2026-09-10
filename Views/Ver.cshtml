@@ -1,0 +1,17 @@
+@model PoliNewsWeb.Models.Post
+
+<a href="/Canais/Perfil/@Model.CanalId" class="link-voltar">← Voltar</a>
+
+@if (!string.IsNullOrEmpty(Model.VideoUrl))
+{
+    <div style="max-width:500px; margin:1rem auto;">
+        <iframe width="100%" height="600" src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+}
+else
+{
+    <img src="@Model.Foto" alt="@Model.Titulo" style="max-width:100%; border-radius:10px;" />
+}
+
+<h2>@Model.Titulo</h2>
+<p>@Model.Texto</p>

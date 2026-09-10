@@ -1,0 +1,59 @@
+﻿@model PoliNewsWeb.Models.HomeViewModel
+
+<h1 class="home-titulo">Bem-vindo ao PoliNews</h1>
+
+@if (Model.MateriaDoDia != null)
+{
+    <div class="secao-titulo">
+        <h2>Matéria do Dia</h2>
+    </div>
+    <div class="materia-destaque">
+        <img src="@Model.MateriaDoDia.Foto" alt="@Model.MateriaDoDia.Titulo" />
+        <div class="materia-conteudo">
+            <h3 class="materia-titulo">@Model.MateriaDoDia.Titulo</h3>
+            <p class="materia-texto">@Model.MateriaDoDia.Texto</p>
+            @if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+{
+    <a href="/Materia/Excluir/@Model.MateriaDoDia.Id" class="botao-excluir" style="margin-top:1rem; display:inline-block;">Excluir Matéria</a>
+}
+
+            <div class="materia-reacoes">
+                <form method="post" action="/Materia/Curtir/@Model.MateriaDoDia.Id">
+                    <button type="submit" class="btn-curtir">👍 @Model.MateriaDoDia.Curtidas</button>
+                </form>
+                <form method="post" action="/Materia/Descurtir/@Model.MateriaDoDia.Id">
+                    <button type="submit" class="btn-descurtir">👎 @Model.MateriaDoDia.Descurtidas</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@foreach (var bloco in Model.Canais)
+{
+   <div class="secao-titulo">
+    <h2>@bloco.Canal.Nome</h2>
+    <a href="/Canais/Perfil/@bloco.Canal.Id" class="botao-perfil">Ver tudo</a>
+</div>
+
+    @if (bloco.Posts.Any())
+    {
+        <div class="perfil-grade">
+            @foreach (var post in bloco.Posts)
+            {
+                <a href="/Posts/Ver/@post.Id" class="cartao-post">
+                    <img src="@post.Foto" alt="@post.Titulo" />
+                    <p>@post.Titulo</p>
+                </a>
+            }
+        </div>
+        @if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+        {
+            <a href="/Materia/Criar" class="botao-perfil">+ Nova Matéria do Dia</a>
+        }
+    }
+    else
+    {
+        <p class="perfil-vazio">Nenhum post ainda neste canal.</p>
+    }
+}

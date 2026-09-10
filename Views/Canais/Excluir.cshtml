@@ -1,0 +1,22 @@
+@model PoliNewsWeb.Models.Canal
+
+@{
+    ViewData["Title"] = "Excluir Canal";
+}
+
+<h1>Excluir Canal</h1>
+
+<h3>Tem certeza que deseja excluir este canal?</h3>
+
+<div class="cartao-excluir">
+    <h4>@Model.Nome</h4>
+    <p>@Model.Descricao</p>
+    <img src="@Model.Foto" alt="@Model.Nome" width="200" />
+</div>
+
+<form asp-action="Excluir">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="botao-confirmar-exclusao">Confirmar exclusão</button>
+</form>
+
+<a asp-action="Index" class="link-voltar">Voltar para a lista</a>

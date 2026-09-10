@@ -1,0 +1,24 @@
+@model PoliNewsWeb.Models.Noticia
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Titulo - Poli News</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="fundo-leitura">
+    <div class="container-leitura">
+        <a href="/CategoriaNoticia/Perfil/@Model.CategoriaNoticiaId" class="link-voltar">← Voltar</a>
+
+        <img src="@Model.Foto" alt="@Model.Titulo" class="foto-leitura" />
+
+        <h1>@Model.Titulo</h1>
+
+        <p class="texto-leitura">@Model.Texto</p>
+    </div>
+</body>
+</html>

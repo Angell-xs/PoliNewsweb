@@ -1,0 +1,30 @@
+@model PoliNewsWeb.Models.Canal
+
+@{
+    ViewData[ "Title"] = "Editar Canal";
+}
+
+<h1>Editar Canal</h1>
+
+<form asp-action="Editar" class="cartao-formulario">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Descricao"></label>
+        <input asp-for="Descricao" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Foto"></label>
+        <input asp-for="Foto" class="form-control" />
+    </div>
+
+    <button type="submit" class="botao-salvar">Salvar</button>
+</form>
+
+<a asp-action="Index" class="link-voltar">Voltar para a lista</a>

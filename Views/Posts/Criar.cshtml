@@ -1,0 +1,24 @@
+@model PoliNewsWeb.Models.Post
+
+@{
+    ViewData["Title"] = "Novo Post";
+}
+
+<h1>Novo Post</h1>
+
+<form asp-action="Criar" class="cartao-formulario">
+    <input type="hidden" asp-for="CanalId" />
+
+    <label asp-for="Titulo"></label>
+    <input asp-for="Titulo" class="form-control" />
+
+    <label asp-for="Texto"></label>
+    <input asp-for="Texto" class="form-control" />
+
+    <label asp-for="Foto">Link da foto</label>
+    <input asp-for="Foto" class="form-control" placeholder="https://i.postimg.cc/..." />
+
+    <button type="submit" class="botao-salvar">Publicar</button>
+</form>
+
+<a asp-controller="Canais" asp-action="Perfil" asp-route-id="@Model.CanalId" class="link-voltar">Cancelar</a>

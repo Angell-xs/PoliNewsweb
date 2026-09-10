@@ -1,0 +1,280 @@
+/* ===== Feed de posts estilo Instagram ===== */
+
+.ig-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.ig-post {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ig-post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+}
+
+.ig-post-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ig-post-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #E8B923;
+}
+
+.ig-post-canal {
+    font-weight: 700;
+    color: #2F6B68;
+    font-size: 0.9rem;
+}
+
+.ig-post-imagem-link {
+    display: block;
+    width: 100%;
+}
+
+.ig-post-imagem {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #f2f2f2;
+}
+
+.ig-post-acoes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 14px 2px;
+}
+
+.ig-icone {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.ig-icone.curtido {
+    fill: #e0245e;
+    stroke: #e0245e;
+}
+
+.ig-post-curtidas {
+    padding: 6px 14px 0;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #222;
+    margin: 0;
+}
+
+.ig-post-legenda {
+    padding: 4px 14px 0;
+    font-size: 0.88rem;
+    color: #222;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.ig-post-legenda strong {
+    color: #2F6B68;
+    margin-right: 6px;
+}
+
+.ig-post-vercomentarios {
+    padding: 6px 14px 14px;
+    color: #8a8a8a;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin: 0;
+}
+
+.ig-post-vazio {
+    text-align: center;
+    color: #888;
+    padding: 40px 0;
+}
+
+.ig-post-acoes-admin {
+    display: flex;
+    gap: 16px;
+    margin: 0 14px 14px;
+}
+
+.ig-post-excluir {
+    text-align: center;
+    color: #c0392b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ig-post-editar {
+    text-align: center;
+    color: #2F6B68;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* ===== Gaveta de comentários (mesmo padrão do feed de vídeos) ===== */
+
+.comentarios-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 19;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.comentarios-overlay.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.comentarios-drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    max-height: 60dvh;
+    min-height: 260px;
+    background: #16171a;
+    border-radius: 18px 18px 0 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.28s ease;
+}
+
+.comentarios-drawer.aberto {
+    transform: translateY(0);
+}
+
+.comentarios-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 14px 16px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: #2F6B68;
+    flex-shrink: 0;
+}
+
+.comentarios-fechar {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.comentarios-lista {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comentario-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.comentario-autor {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.comentario-texto {
+    color: #ddd;
+    font-size: 0.95rem;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.comentario-data {
+    color: #999;
+    font-size: 0.75rem;
+}
+
+.comentario-vazio {
+    color: #888;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.comentario-excluir {
+    background: none;
+    border: none;
+    color: #e05252;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 4px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.comentarios-form {
+    display: flex;
+    gap: 8px;
+    padding: 12px 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #16171a;
+    flex-shrink: 0;
+}
+
+.comentarios-form input {
+    flex: 1;
+    border-radius: 24px;
+    border: none;
+    padding: 14px 18px;
+    background: #E8B923;
+    color: #16171a;
+    font-size: 1rem;
+    outline: none;
+}
+
+.comentarios-form input::placeholder {
+    color: #5c4b06;
+    opacity: 0.75;
+}
+
+.comentarios-form button {
+    border: none;
+    background: #E8B923;
+    color: #16171a;
+    font-weight: 700;
+    border-radius: 24px;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}

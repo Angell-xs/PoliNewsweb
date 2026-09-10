@@ -1,0 +1,81 @@
+@model List<PoliNewsWeb.Models.CategoriaNoticia>
+
+<h1>Notícias</h1>
+
+@if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+{
+    <a href="/CategoriaNoticia/Criar" class="botao-perfil">+ Adicionar Categoria</a>
+}
+
+<input type="text" id="busca-noticia" placeholder="Buscar artigos..." class="campo-busca" />
+
+<div class="abas-categoria">
+    <button class="aba-categoria ativa" data-categoria="todas">Todas</button>
+    @foreach (var categoria in Model)
+    {
+        <button class="aba-categoria" data-categoria="@categoria.Id">@categoria.Nome</button>
+    }
+</div>
+
+<div class="grid-noticias" id="grid-noticias">
+    @foreach (var noticia in ViewBag.Noticias)
+    {
+        <div class="cartao-noticia" data-categoria="@noticia.CategoriaNoticiaId" data-titulo="@noticia.Titulo.ToLower()">
+            <a href="/Noticia/Ler/@noticia.Id" target="_blank">
+                <div class="imagem-com-etiqueta">
+                    <img src="@noticia.Foto" alt="@noticia.Titulo" />
+                    <span class="etiqueta-categoria">@noticia.CategoriaNoticia.Nome</span>
+                </div>
+                <p class="titulo-noticia">@noticia.Titulo</p>
+                <p class="subtitulo-categoria">@noticia.CategoriaNoticia.Nome</p>
+            </a>
+
+            @if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+            {
+                <a href="/Noticia/Editar/@noticia.Id" class="botao-editar">Editar</a>
+                <a href="/Noticia/Excluir/@noticia.Id" class="botao-excluir">Excluir</a>
+            }
+        </div>
+    }
+</div>
+
+<script>
+    const busca = document.getElementById('busca-noticia');
+    const abas = document.querySelectorAll('.aba-categoria');
+    const cards = document.querySelectorAll('.cartao-noticia');
+    let categoriaAtiva = 'todas';
+
+    function filtrar() {
+        const termo = busca.value.toLowerCase();
+        cards.forEach(card => {
+            const bateCategoria = categoriaAtiva === 'todas' || card.dataset.categoria === categoriaAtiva;
+            const bateTitulo = card.dataset.titulo.includes(termo);
+            card.style.display = (bateCategoria && bateTitulo) ? '' : 'none';
+        });
+    }
+
+    abas.forEach(aba => {
+        aba.addEventListener('click', () => {
+            abas.forEach(a => a.classList.remove('ativa'));
+            aba.classList.add('ativa');
+            categoriaAtiva = aba.dataset.categoria;
+            filtrar();
+        });
+    });
+
+    busca.addEventListener('input', filtrar);
+</script>
+
+<h3>Gerenciar categorias</h3>
+
+@if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+{
+    @foreach (var categoria in Model)
+    {
+        <div class="acoes-canal">
+            <a href="/CategoriaNoticia/Perfil/@categoria.Id" class="botao-perfil">@categoria.Nome</a>
+            <a href="/CategoriaNoticia/Editar/@categoria.Id" class="botao-editar">Editar</a>
+            <a href="/CategoriaNoticia/Excluir/@categoria.Id" class="botao-excluir">Excluir</a>
+        </div>
+    }
+}

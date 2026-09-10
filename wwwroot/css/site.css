@@ -1,0 +1,604 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+/* ===== Paleta PoliNews ===== */
+:root {
+    --polinews-verde: #2F6B68;
+    --polinews-verde-escuro: #234E4C;
+    --polinews-amarelo: #E8B923;
+    --polinews-texto: #2D2D2D;
+}
+
+.navbar-topo {
+    background-color: var(--polinews-verde);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.navbar-marca a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    display: inline-block;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: var(--polinews-amarelo);
+}
+
+.navbar-menu li a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: var(--polinews-texto);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.navbar-menu li a:hover {
+    background-color: #d1a11d;
+}
+/* ===== Perfil do Canal ===== */
+.perfil-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+.perfil-foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--polinews-amarelo);
+}
+
+.perfil-info h2 {
+    margin: 0;
+    color: var(--polinews-verde-escuro);
+}
+
+.perfil-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.perfil-vazio {
+    color: #999;
+    font-style: italic;
+    background: #fafafa;
+    border: 1.5px dashed #ddd;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    margin: 0.5rem 0 0;
+}
+/* ===== Botões de ação (Canais) ===== */
+.acoes-canal {
+    display: flex;
+    gap: 0.6rem;
+    margin: 0.6rem 0 1.5rem;
+}
+
+.botao-acao {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.botao-acao:hover {
+    opacity: 0.85;
+}
+
+.botao-perfil {
+    background-color: var(--polinews-verde);
+    color: white;
+}
+
+.botao-editar {
+    background-color: var(--polinews-amarelo);
+    color: var(--polinews-texto);
+}
+
+.botao-excluir {
+    background-color: #c0392b;
+    color: white;
+}
+/* ===== Formulários (Editar/Criar) ===== */
+.cartao-formulario {
+    max-width: 500px;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: #f9f9f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.cartao-formulario label {
+    display: block;
+    font-weight: 600;
+    color: var(--polinews-verde-escuro);
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.cartao-formulario input[type="text"],
+.cartao-formulario input:not([type="hidden"]) {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.cartao-formulario input:focus {
+    outline: none;
+    border-color: var(--polinews-verde);
+}
+
+.botao-salvar {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.4rem;
+    background-color: var(--polinews-verde);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.botao-salvar:hover {
+    opacity: 0.85;
+}
+
+.link-voltar {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--polinews-verde);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-voltar:hover {
+    text-decoration: underline;
+}
+
+/* ===== Tela de exclusão ===== */
+.cartao-excluir {
+    max-width: 500px;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: #fdf2f0;
+    border: 1px solid #f1c4bc;
+    border-radius: 10px;
+}
+
+.cartao-excluir img {
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.botao-confirmar-exclusao {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.botao-confirmar-exclusao:hover {
+    opacity: 0.85;
+}
+.perfil-cabecalho-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.cartao-post {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 0.7rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+}
+
+.cartao-post:active {
+    transform: translateY(2px);
+}
+
+.cartao-post img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.cartao-post p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--polinews-verde-escuro);
+}
+.tela-acesso {
+    min-height: 100vh;   /* navegadores antigos, como reserva */
+    min-height: 100dvh;  /* unidade "dynamic viewport height" — ignora a barra do navegador */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--polinews-verde-escuro);
+}
+
+.cartao-acesso {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 420px;
+    width: 92%;
+}
+
+.cartao-acesso h1 {
+    color: var(--polinews-verde-escuro);
+    margin-bottom: 0.3rem;
+    font-size: 2rem;
+}
+
+.cartao-acesso p {
+    font-size: 1.05rem;
+}
+
+.cartao-acesso input {
+    width: 100%;
+    padding: 0.9rem;
+    margin: 1.2rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cartao-acesso .botao-salvar {
+    padding: 0.8rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cartao-noticia {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--polinews-amarelo);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease;
+}
+
+.cartao-noticia:hover {
+    transform: translateY(-3px);
+    border-color: var(--polinews-verde);
+}
+
+.cartao-noticia img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.cartao-noticia p {
+    padding: 0.6rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--polinews-verde);
+}
+
+.cartao-noticia .botao-editar,
+.cartao-noticia .botao-excluir {
+    margin: 0 0.5rem 0.5rem;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+.fundo-leitura {
+    margin: 0;
+    padding: 0;
+    background: #fdfaf6;
+    font-family: Arial, sans-serif;
+}
+
+.container-leitura {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem 1.2rem 3rem;
+}
+
+.container-leitura h1 {
+    color: var(--polinews-verde);
+    font-size: 1.6rem;
+    margin: 1.2rem 0 1rem;
+    line-height: 1.3;
+}
+
+.foto-leitura {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.texto-leitura {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+.container-leitura .link-voltar {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.campo-busca {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.7rem 1rem;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    margin: 1rem 0;
+    font-size: 1rem;
+    display: block;
+}
+
+.abas-categoria {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.aba-categoria {
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    border: none;
+    background: #eee;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.aba-categoria.ativa {
+    background: var(--polinews-amarelo);
+    color: var(--polinews-verde);
+}
+
+.imagem-com-etiqueta {
+    position: relative;
+}
+
+.etiqueta-categoria {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: var(--polinews-verde);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+.titulo-noticia {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0.5rem 0.7rem 0.1rem;
+    color: #222;
+}
+
+.subtitulo-categoria {
+    font-size: 0.8rem;
+    color: var(--polinews-amarelo);
+    margin: 0 0.7rem 0.5rem;
+}
+/* ===== Home ===== */
+.home-titulo {
+    color: var(--polinews-verde-escuro);
+    margin: 1.5rem 0 0.2rem;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.secao-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2.2rem 0 1rem;
+}
+
+.secao-titulo h2 {
+    color: var(--polinews-verde-escuro);
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    position: relative;
+    padding-left: 14px;
+}
+
+.secao-titulo h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 5px;
+    border-radius: 4px;
+    background: var(--polinews-amarelo);
+}
+
+.secao-titulo .botao-perfil {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.9rem;
+}
+
+/* ===== Matéria do Dia ===== */
+.materia-destaque {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(47,107,104,0.15);
+    margin-bottom: 1.5rem;
+}
+
+.materia-destaque img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
+.materia-conteudo {
+    padding: 1.5rem 1.6rem 1.7rem;
+}
+
+.materia-titulo {
+    color: var(--polinews-verde-escuro);
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 0.7rem;
+}
+
+.materia-texto {
+    color: #444;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.materia-reacoes {
+    display: flex;
+    gap: 0.7rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.1rem;
+}
+
+.materia-reacoes button {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: none;
+    border-radius: 30px;
+    padding: 0.55rem 1.2rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.materia-reacoes button:active {
+    transform: scale(0.96);
+}
+
+.btn-curtir {
+    background-color: #EAF5F3;
+    color: var(--polinews-verde-escuro);
+}
+
+.btn-descurtir {
+    background-color: #FCEBEA;
+    color: #c0392b;
+}
+.feed-form-curtir {
+    margin: 0;
+}
+
+.feed-botao-curtir {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.feed-contador {
+    font-size: 0.8rem;
+    margin-top: 2px;
+}

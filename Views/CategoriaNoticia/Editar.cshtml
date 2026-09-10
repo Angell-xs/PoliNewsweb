@@ -1,0 +1,14 @@
+@model PoliNewsWeb.Models.CategoriaNoticia
+
+<h1>Editar Categoria</h1>
+
+<div class="cartao-formulario">
+    <form method="post" action="/CategoriaNoticia/Editar/@Model.Id">
+        <label>Nome:</label>
+        <input type="text" name="Nome" value="@Model.Nome" required />
+
+        <button type="submit" class="botao-salvar">Salvar</button>
+    </form>
+</div>
+
+<a href="/CategoriaNoticia" class="link-voltar">Voltar para a lista</a>

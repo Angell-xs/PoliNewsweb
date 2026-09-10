@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Criar Canal";
+}
+
+<h1>Adicionar Canal</h1>
+<form asp-action="Criar" class="cartao-formulario">
+    <label>Nome:</label>
+    <input type="text" name="Nome" class="form-control" />
+
+    <label>Descrição:</label>
+    <input type="text" name="Descricao" class="form-control" />
+
+    <label>Link da Foto:</label>
+    <input type="text" name="Foto" class="form-control" />
+
+    <button type="submit" class="botao-salvar">Salvar</button>
+</form>
+
+<a asp-action="Index" class="link-voltar">Voltar para a lista</a>

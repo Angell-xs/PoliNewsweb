@@ -1,0 +1,20 @@
+@model PoliNewsWeb.Models.Materia
+
+<h1>Nova Matéria do Dia</h1>
+
+<div class="cartao-formulario">
+    <form method="post" action="/Materia/Criar">
+        <label>Título:</label>
+        <input type="text" name="Titulo" required />
+
+        <label>Link da Foto:</label>
+        <input type="text" name="Foto" required />
+
+        <label>Texto:</label>
+        <textarea name="Texto" rows="8" required></textarea>
+
+        <button type="submit" class="botao-salvar">Publicar</button>
+    </form>
+</div>
+
+<a href="/Home/Index" class="link-voltar">Voltar</a>

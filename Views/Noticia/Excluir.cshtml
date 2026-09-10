@@ -1,0 +1,15 @@
+@model PoliNewsWeb.Models.Noticia
+
+<h1>Excluir Notícia</h1>
+<p>Tem certeza que deseja excluir esta notícia?</p>
+
+<div class="cartao-excluir">
+    <h2>@Model.Titulo</h2>
+    <img src="@Model.Foto" alt="@Model.Titulo" style="max-width: 200px;" />
+</div>
+
+<form method="post" action="/Noticia/ExcluirConfirmado/@Model.Id">
+    <button type="submit" class="botao-excluir">Confirmar exclusão</button>
+</form>
+
+<a href="/CategoriaNoticia/Perfil/@Model.CategoriaNoticiaId" class="link-voltar">Voltar para a categoria</a>

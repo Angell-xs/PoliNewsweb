@@ -1,0 +1,28 @@
+@model PoliNewsWeb.Models.CategoriaNoticia
+
+<h1>@Model.Nome</h1>
+
+@if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+{
+    <a href="/Noticia/Criar?categoriaId=@Model.Id" class="botao-perfil">+ Nova Notícia</a>
+}
+
+<div class="grid-noticias">
+    @foreach (var noticia in ViewBag.Noticias)
+    {
+        <div class="cartao-noticia">
+            <a href="/Noticia/Ler/@noticia.Id" target="_blank">
+                <img src="@noticia.Foto" alt="@noticia.Titulo" />
+                <p>@noticia.Titulo</p>
+            </a>
+
+            @if (Context.Session.GetString(key: "TipoUsuario") == "admin")
+            {
+                <a href="/Noticia/Editar/@noticia.Id" class="botao-editar">Editar</a>
+                <a href="/Noticia/Excluir/@noticia.Id" class="botao-excluir">Excluir</a>
+            }
+        </div>
+    }
+</div>
+
+<a href="/CategoriaNoticia" class="link-voltar">Voltar para a lista</a>

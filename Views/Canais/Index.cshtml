@@ -1,0 +1,34 @@
+@model List<PoliNewsWeb.Models.Canal>
+
+<div class="perfil-cabecalho-acoes">
+    <h1>Canais do Blog</h1>
+    @if (Context.Session.GetString("TipoUsuario") == "admin")
+    {
+        <a asp-action="Criar" class="botao-salvar">+ Adicionar Canal</a>
+    }
+</div>
+
+@if (Model.Count == 0)
+{
+    <p>Nenhum canal cadastrado ainda.</p>
+}
+else
+{
+    @foreach (var canal in Model)
+    {
+        <div>
+        <img src="@canal.Foto" alt="@canal.Nome" width="200" />
+        <h2>@canal.Nome</h2>
+        <p>@canal.Descricao</p>
+        <div class="acoes-canal">
+    <a asp-action="Perfil" asp-route-id="@canal.Id" class="botao-acao botao-perfil">Ver perfil</a>
+
+    @if (Context.Session.GetString("TipoUsuario") == "admin")
+    {
+        <a asp-action="Editar" asp-route-id="@canal.Id" class="botao-acao botao-editar">Editar</a>
+        <a asp-action="Excluir" asp-route-id="@canal.Id" class="botao-acao botao-excluir">Excluir</a>
+    }
+</div>
+    </div>
+    }
+}

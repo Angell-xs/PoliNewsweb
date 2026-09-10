@@ -1,0 +1,190 @@
+@model PoliNewsWeb.Models.Canal
+
+@{
+    ViewData["Title"] = Model.Nome;
+}
+
+<link rel="stylesheet" href="~/css/posts-instagram.css" />
+
+<div class="perfil-canal">
+    <div class="perfil-cabecalho">
+        <img src="@Model.Foto" alt="@Model.Nome" class="perfil-foto" />
+        <div class="perfil-info">
+            <h2>@@@Model.Nome</h2>
+            <p>@Model.Descricao</p>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="perfil-cabecalho-acoes">
+        <h3>Conteúdo</h3>
+        @if (Context.Session.GetString("TipoUsuario") == "admin")
+        {
+            <a asp-controller="Posts" asp-action="Criar" asp-route-canalId="@Model.Id" class="botao-salvar">Novo Post</a>
+        }
+    </div>
+
+    @{
+        var posts = ViewBag.Posts as List<PoliNewsWeb.Models.Post>;
+    }
+
+    @if (posts == null || posts.Count == 0)
+    {
+        <p class="ig-post-vazio">Nenhuma postagem ainda.</p>
+    }
+    else
+    {
+        <div class="ig-feed">
+            @foreach (var post in posts)
+            {
+                int qtdComentarios = post.Comentarios?.Count ?? 0;
+
+                <div class="ig-post">
+                    <div class="ig-post-header">
+                        <div class="ig-post-header-info">
+                            <img src="@Model.Foto" class="ig-post-avatar" alt="@Model.Nome" />
+                            <span class="ig-post-canal">@Model.Nome</span>
+                        </div>
+                    </div>
+
+                    <a href="/Posts/Ver/@post.Id" class="ig-post-imagem-link">
+                        <img src="@post.Foto" class="ig-post-imagem" alt="@post.Titulo" />
+                    </a>
+
+                    <div class="ig-post-acoes">
+                        <svg class="ig-icone" id="coracao-@post.Id" onclick="curtirPost(@post.Id)" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21s-6.7-4.35-9.33-8.28C.87 9.92 1.62 6.5 4.34 5.02 6.4 3.9 8.9 4.5 10.2 6.3L12 8.6l1.8-2.3c1.3-1.8 3.8-2.4 5.86-1.28 2.72 1.48 3.47 4.9 1.67 7.7C18.7 16.65 12 21 12 21z"/>
+                        </svg>
+
+                        <svg class="ig-icone" onclick="abrirComentariosPost(@post.Id)" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H8l-4 3v-4.5A8.5 8.5 0 1 1 21 11.5z"/>
+                        </svg>
+
+                        <svg class="ig-icone" onclick="compartilharPost(@post.Id)" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2 11 13"/>
+                            <path d="M22 2 15 22l-4-9-9-4 20-7z"/>
+                        </svg>
+                    </div>
+
+                    <p class="ig-post-curtidas"><span id="curtidas-@post.Id">@post.Curtidas</span> curtidas</p>
+
+                    <p class="ig-post-legenda"><strong>@Model.Nome</strong>@post.Titulo — @post.Texto</p>
+
+                    <p class="ig-post-vercomentarios" onclick="abrirComentariosPost(@post.Id)">
+                        Ver todos os <span id="qtdcomentarios-@post.Id">@qtdComentarios</span> comentários
+                    </p>
+
+                    @if (Context.Session.GetString("TipoUsuario") == "admin")
+                    {
+                        <div class="ig-post-acoes-admin">
+                            <a asp-controller="Posts" asp-action="Editar" asp-route-id="@post.Id" class="ig-post-editar">Editar post</a>
+                            <a asp-controller="Posts" asp-action="Excluir" asp-route-id="@post.Id" class="ig-post-excluir">Excluir post</a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<a asp-action="Index" class="link-voltar">Voltar para a lista</a>
+
+<!-- ===== Gaveta de comentários (fica escondida até clicar no ícone de comentário) ===== -->
+<div class="comentarios-overlay" id="comentarios-overlay" onclick="fecharComentariosPost()"></div>
+<div class="comentarios-drawer" id="comentarios-drawer">
+    <div class="comentarios-header">
+        <span>Comentários</span>
+        <button class="comentarios-fechar" onclick="fecharComentariosPost()">✕</button>
+    </div>
+    <div class="comentarios-lista" id="lista-comentarios-perfil">
+        <!-- carregado via JavaScript -->
+    </div>
+    <form class="comentarios-form" onsubmit="enviarComentarioPost(event)">
+        <input type="text" id="input-comentario-perfil" placeholder="Adicione um comentário..." maxlength="300" autocomplete="off" />
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<script>
+    function curtirPost(postId) {
+        fetch('/Posts/Curtir/' + postId, { method: 'POST' })
+            .then(() => {
+                const contador = document.getElementById('curtidas-' + postId);
+                if (contador) {
+                    contador.textContent = parseInt(contador.textContent) + 1;
+                }
+                const coracao = document.getElementById('coracao-' + postId);
+                if (coracao) {
+                    coracao.classList.add('curtido');
+                }
+            });
+    }
+
+    function compartilharPost(postId) {
+        const url = window.location.origin + '/Posts/Ver/' + postId;
+        navigator.clipboard.writeText(url);
+        alert('Link copiado!');
+    }
+
+    // ===== Comentários =====
+    let postoAtualComentarioPerfil = null;
+
+    function abrirComentariosPost(postId) {
+        postoAtualComentarioPerfil = postId;
+        document.getElementById('comentarios-overlay').classList.add('aberto');
+        document.getElementById('comentarios-drawer').classList.add('aberto');
+        carregarComentariosPerfil(postId);
+    }
+
+    function fecharComentariosPost() {
+        document.getElementById('comentarios-overlay').classList.remove('aberto');
+        document.getElementById('comentarios-drawer').classList.remove('aberto');
+    }
+
+    function carregarComentariosPerfil(postId) {
+        fetch('/Posts/ListarComentarios?postId=' + postId)
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('lista-comentarios-perfil').innerHTML = html;
+            });
+    }
+
+    function excluirComentario(comentarioId) {
+        if (!confirm('Excluir este comentário?')) return;
+        fetch('/Posts/ExcluirComentario/' + comentarioId, { method: 'POST' })
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('lista-comentarios-perfil').innerHTML = html;
+                const contador = document.getElementById('qtdcomentarios-' + postoAtualComentarioPerfil);
+                if (contador) {
+                    contador.textContent = Math.max(0, parseInt(contador.textContent) - 1);
+                }
+            });
+    }
+
+    function enviarComentarioPost(event) {
+        event.preventDefault();
+        const input = document.getElementById('input-comentario-perfil');
+        const texto = input.value.trim();
+        if (!texto || postoAtualComentarioPerfil === null) return;
+
+        const dados = new URLSearchParams();
+        dados.append('postId', postoAtualComentarioPerfil);
+        dados.append('texto', texto);
+
+        fetch('/Posts/Comentar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: dados
+        }).then(() => {
+            input.value = '';
+            carregarComentariosPerfil(postoAtualComentarioPerfil);
+
+            const contador = document.getElementById('qtdcomentarios-' + postoAtualComentarioPerfil);
+            if (contador) {
+                contador.textContent = parseInt(contador.textContent) + 1;
+            }
+        });
+    }
+</script>

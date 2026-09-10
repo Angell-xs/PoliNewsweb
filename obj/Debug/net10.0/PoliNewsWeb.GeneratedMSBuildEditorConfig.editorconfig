@@ -1,0 +1,160 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
+build_property.RootNamespace = PoliNewsWeb
+build_property.RootNamespace = PoliNewsWeb
+build_property.ProjectDir = C:\Users\Kalinny Angelique\OneDrive\Documentos\Poli News\PoliNewsWeb\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Kalinny Angelique\OneDrive\Documentos\Poli News\PoliNewsWeb
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Acesso/Entrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNlc3NvXEVudHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Canais/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYWlzXENyaWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Canais/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYWlzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Canais/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYWlzXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Canais/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYWlzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Canais/Perfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYWlzXFBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/CategoriaNoticia/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90aWNpYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/CategoriaNoticia/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90aWNpYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/CategoriaNoticia/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90aWNpYVxFeGNsdWlyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/CategoriaNoticia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90aWNpYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/CategoriaNoticia/Perfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90aWNpYVxQZXJmaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Materia/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Materia/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYVxFeGNsdWlyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Noticia/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Noticia/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Noticia/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxFeGNsdWlyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Noticia/Ler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxMZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/CriarVideo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcQ3JpYXJWaWRlby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcRXhjbHVpci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/Feed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcRmVlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/Ver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcVmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Posts/_ComentariosParcial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcX0NvbWVudGFyaW9zUGFyY2lhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Ver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kalinny Angelique/OneDrive/Documentos/Poli News/PoliNewsWeb/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9b5klv4kmd

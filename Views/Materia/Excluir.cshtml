@@ -1,0 +1,15 @@
+@model PoliNewsWeb.Models.Materia
+
+<h1>Excluir Matéria do Dia</h1>
+<p>Tem certeza que deseja excluir esta matéria?</p>
+
+<div class="cartao-excluir">
+    <h2>@Model.Titulo</h2>
+    <img src="@Model.Foto" alt="@Model.Titulo" style="max-width: 200px;" />
+</div>
+
+<form method="post" action="/Materia/ExcluirConfirmado/@Model.Id">
+    <button type="submit" class="botao-excluir">Confirmar exclusão</button>
+</form>
+
+<a href="/Home/Index" class="link-voltar">Voltar</a>

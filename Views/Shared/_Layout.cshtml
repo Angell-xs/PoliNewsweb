@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PoliNewsWeb</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PoliNewsWeb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+    <nav class="navbar-topo">
+        <div class="navbar-marca">
+            <a asp-controller="Home" asp-action="Index">Poli News</a>
+        </div>
+        <ul class="navbar-menu">
+    <li><a asp-controller="Home" asp-action="Index">Página Inicial</a></li>
+    <li><a href="/CategoriaNoticia">Notícias</a></li>
+    <li><a asp-controller="Canais" asp-action="Index">Blog</a></li>
+    <li><a asp-controller="Posts" asp-action="Feed">Vídeos</a></li>
+</ul>
+    </nav>
+</header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - PoliNewsWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

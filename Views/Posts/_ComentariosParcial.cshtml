@@ -1,0 +1,22 @@
+@model List<PoliNewsWeb.Models.Comentario>
+
+@if (!Model.Any())
+{
+    <p class="comentario-vazio">Ainda não tem comentários. Seja o primeiro!</p>
+}
+else
+{
+    foreach (var c in Model)
+    {
+        <div class="comentario-item">
+            <strong class="comentario-autor">@c.Autor</strong>
+            <p class="comentario-texto">@c.Texto</p>
+            <span class="comentario-data">@c.DataCriacao.ToString("dd/MM HH:mm")</span>
+
+            @if (Context.Session.GetString("TipoUsuario") == "admin")
+            {
+                <button type="button" class="comentario-excluir" onclick="excluirComentario(@c.Id)">Excluir</button>
+            }
+        </div>
+    }
+}

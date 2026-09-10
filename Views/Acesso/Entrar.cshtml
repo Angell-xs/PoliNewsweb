@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Entrar";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Poli News - Entrar</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+</style>
+</head>
+<body>
+    <div class="tela-acesso">
+        <div class="cartao-acesso">
+            <h1>Poli News</h1>
+            <p>Digite a senha para acessar</p>
+
+            <form asp-action="Entrar" method="post">
+                <input type="password" name="senha" placeholder="Senha" class="form-control" />
+                <button type="submit" class="botao-salvar">Entrar</button>
+            </form>
+
+            @if (ViewBag.Erro != null)
+            {
+                <p style="color: #c0392b; margin-top: 0.8rem;">@ViewBag.Erro</p>
+            }
+        </div>
+    </div>
+</body>
+</html>

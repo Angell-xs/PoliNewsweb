@@ -1,0 +1,344 @@
+/* ===== Feed estilo TikTok ===== */
+
+html, body.fundo-feed {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.feed-video {
+    height: 100dvh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.feed-item {
+    position: relative;
+    height: 100dvh;
+    width: 100vw;
+    scroll-snap-align: start;
+    background: #000;
+}
+
+.feed-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.botao-voltar-feed {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao-novo-video {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    color: #16171a;
+    background: #E8B923;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.feed-vazio {
+    color: #fff;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+/* ===== Legenda (canto inferior esquerdo) ===== */
+
+.feed-info {
+    position: absolute;
+    bottom: 24px;
+    left: 12px;
+    right: 60px;
+    z-index: 10;
+    color: #fff;
+}
+
+.feed-canal-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.feed-canal {
+    color: white;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+.feed-titulo {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.feed-texto-wrapper {
+    max-width: 78vw;
+}
+
+.feed-texto {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0.3rem 0 0;
+    line-height: 1.4;
+}
+
+.feed-texto-fechado {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.feed-toggle {
+    display: block;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-top: 6px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* ===== Coluna lateral direita (ícones) ===== */
+
+.feed-overlay-lateral {
+    position: absolute;
+    right: 10px;
+    bottom: 90px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.feed-avatar-wrapper {
+    position: relative;
+}
+
+.feed-avatar-lateral {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+.feed-form-curtir {
+    margin: 0;
+}
+
+.feed-botao-icone {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.feed-emoji {
+    width: 74px;
+    height: 74px;
+    display: block;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
+.feed-emoji.curtido {
+    fill: #e0245e;
+}
+
+.feed-contador {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 4px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+.feed-disco-musical {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    animation: girar 3s linear infinite;
+    margin-top: 6px;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== Gaveta de comentários (estilo TikTok) ===== */
+
+.comentarios-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 19;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.comentarios-overlay.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.comentarios-drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    max-height: 80dvh;
+    min-height: 65dvh;
+    background: #16171a;
+    border-radius: 18px 18px 0 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.28s ease;
+}
+
+.comentarios-drawer.aberto {
+    transform: translateY(0);
+}
+
+.comentarios-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 14px 16px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: #2F6B68;
+    flex-shrink: 0;
+}
+
+.comentarios-fechar {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.comentarios-lista {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comentario-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.comentario-autor {
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.comentario-texto {
+    color: #ddd;
+    font-size: 1.45rem;
+    margin: 6px 0;
+    line-height: 1.4;
+}
+
+.comentario-data {
+    color: #999;
+    font-size: 1.05rem;
+}
+
+.comentario-vazio {
+    color: #888;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 24px;
+}
+
+.comentario-excluir {
+    background: none;
+    border: none;
+    color: #e05252;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 4px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.comentarios-form {
+    display: flex;
+    gap: 8px;
+    padding: 12px 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #16171a;
+    flex-shrink: 0;
+}
+
+.comentarios-form input {
+    flex: 1;
+    border-radius: 30px;
+    border: none;
+    padding: 26px 30px;
+    background: #E8B923;
+    color: #16171a;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+.comentarios-form input::placeholder {
+    color: #5c4b06;
+    opacity: 0.75;
+}
+
+.comentarios-form button {
+    border: none;
+    background: #E8B923;
+    color: #16171a;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 0 32px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}

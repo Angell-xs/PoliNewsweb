@@ -1,0 +1,31 @@
+@model PoliNewsWeb.Models.Post
+
+@{
+    ViewData["Title"] = "Novo Vídeo";
+    var canais = ViewBag.Canais as List<PoliNewsWeb.Models.Canal>;
+}
+
+<h1>Novo Vídeo</h1>
+
+<form asp-action="CriarVideo" class="cartao-formulario">
+    <label>Canal</label>
+    <select name="CanalId" class="form-control">
+        @foreach (var canal in canais)
+        {
+            <option value="@canal.Id">@canal.Nome</option>
+        }
+    </select>
+
+    <label asp-for="Titulo"></label>
+    <input asp-for="Titulo" class="form-control" />
+
+    <label asp-for="Texto"></label>
+    <input asp-for="Texto" class="form-control" />
+
+    <label asp-for="VideoUrl">Link do vídeo (YouTube, não listado)</label>
+    <input asp-for="VideoUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=..." />
+
+    <button type="submit" class="botao-salvar">Publicar Vídeo</button>
+</form>
+
+<a asp-action="Feed" class="link-voltar">Cancelar</a>
