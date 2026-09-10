@@ -49,11 +49,11 @@ html, body.fundo-feed {
     z-index: 10;
     color: #16171a;
     background: #E8B923;
-    padding: 8px 14px;
-    border-radius: 20px;
+    padding: 16px 24px;
+    border-radius: 28px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 1.15rem;
 }
 
 .feed-vazio {
